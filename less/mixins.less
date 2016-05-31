@@ -9,7 +9,7 @@
 // Button variants
 .button-variant(@color; @background; @background-image-start; @background-image-stop; @border) {
   background-color: @background;
-  #gradient > .vertical(@background-image-start, @background-image-stop);
+  .conditional-vertical-gradient(@background-image-start, @background-image-stop);
   border-color: @border;
   color: @color;
 
@@ -46,6 +46,11 @@
       border-color: @border
     }
   }
+}
+
+// Conditional vertical gradient
+.conditional-vertical-gradient(@start; @stop) when not (@start = @stop) {
+  #gradient > .vertical(@start, @stop);
 }
 
 // Form control outline
