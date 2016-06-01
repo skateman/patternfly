@@ -71,6 +71,7 @@
       &.active:hover,
       &.active.disabled,
       &.active.disabled:hover {
+        .button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-bg, @btn-primary-bg, @btn-primary-border);
         background: @dropdown-link-active-bg !important;
         color: @color-pf-white !important;
         text-shadow: none;
@@ -79,11 +80,24 @@
       &.day.focused {
         background: @dropdown-link-hover-bg;
       }
+      &.range.today,
+      &.range.today:hover,
+      &.range.today.disabled,
+      &.range.today.disabled:hover {
+        .button-variant(#000, @today-bg, @today-bg, @today-bg, darken(@today-bg, 20%));
+      }
       &.selected,
       &.selected:hover,
       &.selected.disabled,
       &.selected.disabled:hover {
+        .button-variant(#fff, @gray-light, @gray-light, @gray-light, @gray);
         text-shadow: none;
+      }
+      &.today,
+      &.today:hover,
+      &.today.disabled,
+      &.today.disabled:hover {
+        .button-variant(#000, @today-bg, @today-bg, @today-bg, darken(@today-bg, 20%));
       }
       span {
         border-radius: @border-radius-base;
@@ -91,6 +105,7 @@
         &.active:hover,
         &.active.disabled,
         &.active.disabled:hover {
+          .button-variant(@btn-primary-color, @btn-primary-bg, @btn-primary-bg, @btn-primary-bg, @btn-primary-border);
           background: @dropdown-link-active-bg;
           text-shadow: none;
         }
