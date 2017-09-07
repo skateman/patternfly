@@ -1,0 +1,409 @@
+---
+categories: [Layouts]
+css-extra: false
+layout: layout-fixed
+resource: true
+full-page: true
+title: ManageIQ Explorer
+url-js-extra: ['//rawgit.com/patternfly/patternfly-bootstrap-treeview/v2.1.3/dist/bootstrap-treeview.min.js']
+---
+
+{% include widgets/layouts/navbar-vertical.html notification-drawer=true launcher-icons=include.launcher-icons %}
+<div class="nav-pf-vertical nav-pf-vertical-with-sub-menus hidden-icons-pf">
+  <ul class="list-group">
+    <li class="list-group-item">
+      <a href="#0">
+        <span class="fa fa-dashboard" data-toggle="tooltip" title="Dashboard"></span>
+        <span class="list-group-item-value">Dashboard</span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="#0">
+        <span class="fa fa-shield" data-toggle="tooltip" title="Dolor"></span>
+        <span class="list-group-item-value">Dolor</span>
+      </a>
+    </li>
+    <li class="list-group-item active secondary-nav-item-pf" data-target="#ipsum-secondary">
+      <a href="#0">
+        <span class="fa fa-space-shuttle" data-toggle="tooltip" title="Ipsum"></span>
+        <span class="list-group-item-value">Ipsum</span>
+      </a>
+      {% include widgets/navigation/secondary-nav-ipsum.html %}
+    </li>
+    <li class="list-group-item secondary-nav-item-pf" data-target="#amet-secondary">
+      <a href="#0">
+        <span class="fa fa-paper-plane" data-toggle="tooltip" title="Amet"></span>
+        <span class="list-group-item-value">Amet</span>
+      </a>
+      {% include widgets/navigation/secondary-nav-amet.html %}
+    </li>
+    <li class="list-group-item">
+      <a href="#0">
+        <span class="fa fa-graduation-cap" data-toggle="tooltip" title="Adipscing"></span>
+        <span class="list-group-item-value">Adipscing</span>
+      </a>
+    </li>
+    <li class="list-group-item">
+      <a href="#0">
+        <span class="fa fa-gamepad" data-toggle="tooltip" title="Lorem"></span>
+        <span class="list-group-item-value">Lorem</span>
+      </a>
+    </li>
+    <li class="list-group-item secondary-nav-item-pf mobile-nav-item-pf visible-xs-block">
+      <a href="#0">
+        <span class="pficon pficon-user" data-toggle="tooltip" title="" data-original-title="User"></span>
+        <span class="list-group-item-value">User</span>
+      </a>
+      <div id="user-secondary" class="nav-pf-secondary-nav">
+        <div class="nav-item-pf-header">
+          <a href="#0" class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+          <span>User</span>
+        </div>
+
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="#0">
+              <span class="list-group-item-value">Preferences</span>
+            </a>
+          </li>
+
+          <li class="list-group-item">
+            <a href="#0">
+              <span class="list-group-item-value">Logout</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+    <li class="list-group-item secondary-nav-item-pf mobile-nav-item-pf visible-xs-block" data-target="#amet-secondary">
+      <a href="#0">
+        <span class="pficon pficon-help" data-toggle="tooltip" title="" data-original-title="Help"></span>
+        <span class="list-group-item-value">Help</span>
+      </a>
+      <div id="help-secondary" class="nav-pf-secondary-nav">
+        <div class="nav-item-pf-header">
+          <a href="#0" class="secondary-collapse-toggle-pf" data-toggle="collapse-secondary-nav"></a>
+          <span>Help</span>
+        </div>
+        <ul class="list-group">
+          <li class="list-group-item">
+            <a href="#0">
+              <span class="list-group-item-value">Help</span>
+            </a>
+          </li>
+          <li class="list-group-item">
+            <a href="#0">
+              <span class="list-group-item-value">About</span>
+            </a>
+          </li>
+        </ul>
+      </div>
+    </li>
+
+  </ul>
+</div>
+<div class="container-fluid container-pf-nav-pf-vertical hidden-icons-pf">
+  <div class="row">
+    <div class="col-sm-8 col-md-9 col-sm-push-4 col-md-push-3">
+      <h1>Lorem Ipsum</h1>
+    </div>
+    <div class="col-sm-4 col-md-3 col-sm-pull-8 col-md-pull-9 sidebar-pf sidebar-pf-left">
+      <div class="panel-group" id="accordion">
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseOne">
+                Lorem ipsum
+              </a>
+            </h4>
+          </div>
+          <div id="collapseOne" class="panel-collapse collapse in">
+            <div class="panel-body">
+              Open the next accordion please!
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseTwo" class="collapsed">
+                Dolor sit amet
+              </a>
+            </h4>
+          </div>
+          <div id="collapseTwo" class="panel-collapse collapse">
+            <div class="panel-body">
+              <div id="treeview1" class="treeview treeview-pf-select"></div>
+            </div>
+          </div>
+        </div>
+        <div class="panel panel-default">
+          <div class="panel-heading">
+            <h4 class="panel-title">
+              <a data-toggle="collapse" data-parent="#accordion" href="#collapseThree" class="collapsed">
+                Consectetur
+              </a>
+            </h4>
+          </div>
+          <div id="collapseThree" class="panel-collapse collapse">
+            <div class="panel-body">
+              Curabitur nisl quam, interdum a venenatis a, consequat a ligula. Nunc nec lorem in erat rhoncus lacinia at ac orci. Sed nec augue congue, vehicula justo quis, venenatis turpis. Nunc quis consectetur purus. Nam vitae viverra lacus. Lorem ipsum dolor sit amet, consectetur adipiscing elit. Vestibulum eu augue felis. Maecenas in dignissim purus, quis pulvinar lectus. Vivamus euismod ultrices diam, in mattis nibh.
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<script type="text/javascript">
+  $(function() {
+    $().setupVerticalNavigation(true);
+
+    var defaultData = [
+      {
+        text: 'Parent 1',
+        href: '#parent1',
+        state: {
+          selected: true
+        },
+        tags: ['4'],
+        nodes: [
+          {
+            text: 'Child 1',
+            href: '#child1',
+            icon: 'fa fa-file-o',
+            tags: ['2'],
+            nodes: [
+              {
+                text: 'Grandchild 1',
+                href: '#grandchild1',
+                icon: 'fa fa-file-o',
+                tags: ['0']
+              },
+              {
+                text: 'Grandchild 2',
+                href: '#grandchild2',
+                icon: 'fa fa-file-o',
+                tags: ['0']
+              }
+            ]
+          },
+          {
+            text: 'Child 2',
+            href: '#child2',
+            icon: 'fa fa-file-o',
+            tags: ['0']
+          }
+        ]
+      },
+      {
+        text: 'Parent 2',
+        href: '#parent2',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 2',
+        href: '#parent2',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 2',
+        href: '#parent2',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 2',
+        href: '#parent2',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      },
+      {
+        text: 'Parent 3',
+        href: '#parent3',
+         tags: ['0']
+      },
+      {
+        text: 'Parent 4',
+        href: '#parent4',
+        tags: ['0']
+      },
+      {
+        text: 'Parent 5',
+        href: '#parent5'  ,
+        tags: ['0']
+      }
+    ];
+    $('#treeview1').treeview({
+      collapseIcon: "fa fa-angle-down",
+      data: defaultData,
+      expandIcon: "fa fa-angle-right",
+      nodeIcon: "fa fa-folder",
+      showBorder: false
+    });
+  });
+</script>
