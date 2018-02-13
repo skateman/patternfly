@@ -103,9 +103,583 @@ url-js-extra: ['//rawgit.com/patternfly/patternfly-bootstrap-treeview/v2.1.3/dis
   </ul>
 </div>
 <div class="container-fluid container-pf-nav-pf-vertical hidden-icons-pf">
+  <div class="row toolbar-pf miq-toolbar-menu" id="toolbar">
+    <div class="col-sm-12">
+    <ng-csp class="ng-scope">
+    <miq-toolbar-menu on-view-click="toolbarCtrl.onViewClick(item, $event)" toolbar-items="toolbarCtrl.toolbarItems" toolbar-views="toolbarCtrl.dataViews" class="ng-isolate-scope"><div class="toolbar-pf-actions miq-toolbar-actions">
+      <!-- ngRepeat: toolbarItem in vm.toolbarItems --><!-- ngIf: vm.hasContent(toolbarItem) --><div class="miq-toolbar-group ng-scope form-group" ng-repeat="toolbarItem in vm.toolbarItems" ng-if="vm.hasContent(toolbarItem)" ng-class="{'form-group': !vm.toolbarHasCustom(toolbarItem)}">
+        <!-- ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle disabled" ng-class="{disabled: !vm.toolbarList.enabled}" title="History" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-arrow-left fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Go to this item" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="history_choice__history_1" name="history_choice__history_1" id="history_choice__history_1" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="x_history?item=1" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text --><i ng-if="item.icon &amp;&amp; !item.text" class="fa fa-arrow-left fa-lg" ng-style="{color: item.color}"></i><!-- end ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() --><button title="Refresh this page" data-explorer="" data-confirm-tb="" id="summary_reload" name="summary_reload" type="button" class="btn btn-default ng-binding ng-scope ng-isolate-scope" data-function="" data-function-data="" data-click="summary_reload" data-url="reload" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" ng-class="{active: toolbarButton.selected, disabled: !toolbarButton.enabled}" ng-hide="toolbarButton.hidden" ng-click="onItemClick({item: toolbarButton, $event: $event})" ng-if="item.type === vm.getButtonType()" toolbar-button="item" on-item-click="vm.onItemClick(item, $event)">
+      <!-- ngIf: toolbarButton.icon && toolbarButton.text -->
+      <!-- ngIf: toolbarButton.icon && !toolbarButton.text --><i ng-if="toolbarButton.icon &amp;&amp; !toolbarButton.text" class="fa fa-refresh fa-lg" ng-style="{color: toolbarButton.color}"></i><!-- end ngIf: toolbarButton.icon && !toolbarButton.text -->
+      <!-- ngIf: toolbarButton.img_url && !toolbarButton.icon -->
+    </button><!-- end ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  -->
+      </div><!-- end ngIf: vm.hasContent(toolbarItem) --><!-- end ngRepeat: toolbarItem in vm.toolbarItems --><!-- ngIf: vm.hasContent(toolbarItem) --><div class="miq-toolbar-group ng-scope form-group" ng-repeat="toolbarItem in vm.toolbarItems" ng-if="vm.hasContent(toolbarItem)" ng-class="{'form-group': !vm.toolbarHasCustom(toolbarItem)}">
+        <!-- ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle disabled" ng-class="{disabled: !vm.toolbarList.enabled}" title="Configuration" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-cog fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        Configuration
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Refresh relationships and power states for all items related to the selected items" data-explorer="true" data-confirm-tb="Refresh relationships and power states for all items related to the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_refresh" name="vm_vmdb_choice__vm_refresh" id="vm_vmdb_choice__vm_refresh" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-refresh fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Refresh Relationships and Power States
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Perform SmartState Analysis on the selected items" data-explorer="true" data-confirm-tb="Perform SmartState Analysis on the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_scan" name="vm_vmdb_choice__vm_scan" id="vm_vmdb_choice__vm_scan" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-search fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Perform SmartState Analysis
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Extract Running Processes for the selected items" data-explorer="true" data-confirm-tb="Extract Running Processes for the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_collect_running_processes" name="vm_vmdb_choice__vm_collect_running_processes" id="vm_vmdb_choice__vm_collect_running_processes" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-eyedropper fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Extract Running Processes
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Select two or more items to compare" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_compare" name="vm_vmdb_choice__vm_compare" id="vm_vmdb_choice__vm_compare" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="ff ff-compare-same fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Compare Selected items
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' --><div ng-if="item.type === 'separator'" class="divider  ng-scope" role="presentation" ng-hide="item.hidden"></div><!-- end ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Select a single item to edit" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_edit" name="vm_vmdb_choice__vm_edit" id="vm_vmdb_choice__vm_edit" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-edit fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Edit Selected item
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Set Ownership for the selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_ownership" name="vm_vmdb_choice__vm_ownership" id="vm_vmdb_choice__vm_ownership" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-user fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Set Ownership
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Remove selected items from Inventory" data-explorer="true" data-confirm-tb="Warning: The selected items and ALL of their components will be permanently removed!" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_delete" name="vm_vmdb_choice__vm_delete" id="vm_vmdb_choice__vm_delete" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-delete fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Remove selected items from Inventory
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' --><div ng-if="item.type === 'separator'" class="divider  ng-scope" role="presentation" ng-hide="item.hidden"></div><!-- end ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="CPU/Memory Recommendations of selected item" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_right_size" name="vm_vmdb_choice__vm_right_size" id="vm_vmdb_choice__vm_right_size" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="ff ff-database-squeezed fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Right-Size Recommendations
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Reconfigure the Memory/CPUs of selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_vmdb_choice__vm_reconfigure" name="vm_vmdb_choice__vm_reconfigure" id="vm_vmdb_choice__vm_reconfigure" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-edit fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Reconfigure Selected items
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle disabled" ng-class="{disabled: !vm.toolbarList.enabled}" title="Policy" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-shield fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        Policy
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Manage Policies for the selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_policy_choice__vm_protect" name="vm_policy_choice__vm_protect" id="vm_policy_choice__vm_protect" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-edit fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Manage Policies
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="View Policy Simulation for the selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_policy_choice__vm_policy_sim" name="vm_policy_choice__vm_policy_sim" id="vm_policy_choice__vm_policy_sim" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-play-circle-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Policy Simulation
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Edit tags for the selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_policy_choice__vm_tag" name="vm_policy_choice__vm_tag" id="vm_policy_choice__vm_tag" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-edit fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Edit Tags
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="No Compliance Policies assigned to this virtual machine" data-explorer="true" data-confirm-tb="Initiate Check Compliance of the last known configuration for the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_policy_choice__vm_check_compliance" name="vm_policy_choice__vm_check_compliance" id="vm_policy_choice__vm_check_compliance" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-search fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Check Compliance of Last Known Configuration
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle" ng-class="{disabled: !vm.toolbarList.enabled}" title="Lifecycle" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-recycle fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        Lifecycle
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Request to Provision VMs" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_miq_request_new" name="vm_lifecycle_choice__vm_miq_request_new" id="vm_lifecycle_choice__vm_miq_request_new" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-add-circle-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Provision VMs
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Clone this item" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_clone" name="vm_lifecycle_choice__vm_clone" id="vm_lifecycle_choice__vm_clone" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="ff ff-clone fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Clone selected item
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Publish selected VM to a Template" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_publish" name="vm_lifecycle_choice__vm_publish" id="vm_lifecycle_choice__vm_publish" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="pficon pficon-export" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Publish selected VM to a Template
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Migrate selected items to another Host/Datastore" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_migrate" name="vm_lifecycle_choice__vm_migrate" id="vm_lifecycle_choice__vm_migrate" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-reply fa-rotate-90 fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Migrate selected items
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="No suitable target infra provider exists" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_transform_mass" name="vm_lifecycle_choice__vm_transform_mass" id="vm_lifecycle_choice__vm_transform_mass" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-random fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Transform tagged VMs to RHV
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Set Retirement Dates for the selected items" data-explorer="true" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_retire" name="vm_lifecycle_choice__vm_retire" id="vm_lifecycle_choice__vm_retire" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-clock-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Set Retirement Dates
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Retire the selected items" data-explorer="true" data-confirm-tb="Retire the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_lifecycle_choice__vm_retire_now" name="vm_lifecycle_choice__vm_retire_now" id="vm_lifecycle_choice__vm_retire_now" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-clock-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Retire selected items
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle disabled" ng-class="{disabled: !vm.toolbarList.enabled}" title="Power Operations" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-power-off fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        Power
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Shutdown the Guest OS on the selected items" data-explorer="true" data-confirm-tb="Shutdown the Guest OS on the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_guest_shutdown" name="vm_power_choice__vm_guest_shutdown" id="vm_power_choice__vm_guest_shutdown" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/guest_shutdown-802d63cf715edca708c78040273c37ec10e9642c1a19562df93c2bd7365dbe66.png" data-enabled="/assets/toolbars/guest_shutdown-802d63cf715edca708c78040273c37ec10e9642c1a19562df93c2bd7365dbe66.png" data-disabled="/assets/toolbars/guest_shutdown-802d63cf715edca708c78040273c37ec10e9642c1a19562df93c2bd7365dbe66.png" class="ng-scope" src="/assets/toolbars/guest_shutdown-802d63cf715edca708c78040273c37ec10e9642c1a19562df93c2bd7365dbe66.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Shutdown Guest
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Restart the Guest OS on the selected items" data-explorer="true" data-confirm-tb="Restart the Guest OS on the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_guest_restart" name="vm_power_choice__vm_guest_restart" id="vm_power_choice__vm_guest_restart" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/guest_restart-9d023258c5b6192a07951c80021f5a3f11cdf13d68e0a45f0140e83ccf937460.png" data-enabled="/assets/toolbars/guest_restart-9d023258c5b6192a07951c80021f5a3f11cdf13d68e0a45f0140e83ccf937460.png" data-disabled="/assets/toolbars/guest_restart-9d023258c5b6192a07951c80021f5a3f11cdf13d68e0a45f0140e83ccf937460.png" class="ng-scope" src="/assets/toolbars/guest_restart-9d023258c5b6192a07951c80021f5a3f11cdf13d68e0a45f0140e83ccf937460.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Restart Guest
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' --><div ng-if="item.type === 'separator'" class="divider  ng-scope" role="presentation" ng-hide="item.hidden"></div><!-- end ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Power On the selected items" data-explorer="true" data-confirm-tb="Power On the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_start" name="vm_power_choice__vm_start" id="vm_power_choice__vm_start" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/power_on-f591b54fe9c2f24e64b4c222577b3d3dae2ba36e3a5806cb093e0970fbe652ef.png" data-enabled="/assets/toolbars/power_on-f591b54fe9c2f24e64b4c222577b3d3dae2ba36e3a5806cb093e0970fbe652ef.png" data-disabled="/assets/toolbars/power_on-f591b54fe9c2f24e64b4c222577b3d3dae2ba36e3a5806cb093e0970fbe652ef.png" class="ng-scope" src="/assets/toolbars/power_on-f591b54fe9c2f24e64b4c222577b3d3dae2ba36e3a5806cb093e0970fbe652ef.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Power On
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Power Off the selected items" data-explorer="true" data-confirm-tb="Power Off the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_stop" name="vm_power_choice__vm_stop" id="vm_power_choice__vm_stop" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/power_off-6d25829c6e8d88b110d3bddf41ce6a8e7890e6ca6a279b3dcee574df230a1c43.png" data-enabled="/assets/toolbars/power_off-6d25829c6e8d88b110d3bddf41ce6a8e7890e6ca6a279b3dcee574df230a1c43.png" data-disabled="/assets/toolbars/power_off-6d25829c6e8d88b110d3bddf41ce6a8e7890e6ca6a279b3dcee574df230a1c43.png" class="ng-scope" src="/assets/toolbars/power_off-6d25829c6e8d88b110d3bddf41ce6a8e7890e6ca6a279b3dcee574df230a1c43.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Power Off
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Suspend the selected items" data-explorer="true" data-confirm-tb="Suspend the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_suspend" name="vm_power_choice__vm_suspend" id="vm_power_choice__vm_suspend" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/power_suspend-bcbd61e33c3ab1f86860f59a65d32d820eb852b4f07886120104b3a803625e83.png" data-enabled="/assets/toolbars/power_suspend-bcbd61e33c3ab1f86860f59a65d32d820eb852b4f07886120104b3a803625e83.png" data-disabled="/assets/toolbars/power_suspend-bcbd61e33c3ab1f86860f59a65d32d820eb852b4f07886120104b3a803625e83.png" class="ng-scope" src="/assets/toolbars/power_suspend-bcbd61e33c3ab1f86860f59a65d32d820eb852b4f07886120104b3a803625e83.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Suspend
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope disabled">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Reset the selected items" data-explorer="true" data-confirm-tb="Reset the selected items?" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="vm_power_choice__vm_reset" name="vm_power_choice__vm_reset" id="vm_power_choice__vm_reset" data-url_parms="main_div" data-send_checked="true" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon --><img ng-if="item.img_url &amp;&amp; !item.icon" ng-src="/assets/toolbars/power_reset-4dd9d11d26603788e636512f57280597546070fb10d8bd12f4e58a946e271e81.png" data-enabled="/assets/toolbars/power_reset-4dd9d11d26603788e636512f57280597546070fb10d8bd12f4e58a946e271e81.png" data-disabled="/assets/toolbars/power_reset-4dd9d11d26603788e636512f57280597546070fb10d8bd12f4e58a946e271e81.png" class="ng-scope" src="/assets/toolbars/power_reset-4dd9d11d26603788e636512f57280597546070fb10d8bd12f4e58a946e271e81.png"><!-- end ngIf: item.img_url && !item.icon -->
+            Reset
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  -->
+      </div><!-- end ngIf: vm.hasContent(toolbarItem) --><!-- end ngRepeat: toolbarItem in vm.toolbarItems --><!-- ngIf: vm.hasContent(toolbarItem) --><div class="miq-toolbar-group ng-scope form-group" ng-repeat="toolbarItem in vm.toolbarItems" ng-if="vm.hasContent(toolbarItem)" ng-class="{'form-group': !vm.toolbarHasCustom(toolbarItem)}">
+        <!-- ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  --><ng-repeat ng-repeat="item in toolbarItem " class="ng-scope">
+          <!-- ngIf: item.type === vm.getButtonType() -->
+          <!-- ngIf: item.type === vm.getButtonTwoState() && item.id.indexOf('view_') === -1 -->
+          <!-- ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 --><miq-toolbar-list ng-if="item.type === vm.getToolbarListType() &amp;&amp; item.items.length > 0" toolbar-list="item" on-item-click="vm.onItemClick(item, $event)" class="ng-scope ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+      <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle" ng-class="{disabled: !vm.toolbarList.enabled}" title="Download" aria-haspopup="true" aria-expanded="false">
+        <!-- ngIf: vm.toolbarList.icon --><i class="fa fa-download fa-lg" ng-if="vm.toolbarList.icon" ng-style="{color: vm.toolbarList.color}"></i><!-- end ngIf: vm.toolbarList.icon -->
+        <span class="caret"></span>
+      </button>
+      <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+        <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Download these items in text format" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="download_choice__download_text" name="download_choice__download_text" id="download_choice__download_text" data-url_parms="?download_type=text" data-send_checked="" data-prompt="" data-popup="" data-url="/download_data" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-file-text-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Download as Text
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Download these items in CSV format" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="download_choice__download_csv" name="download_choice__download_csv" id="download_choice__download_csv" data-url_parms="?download_type=csv" data-send_checked="" data-prompt="" data-popup="" data-url="/download_data" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-file-text-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Download as CSV
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+          <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="Download these items in PDF format" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="download_choice__download_pdf" name="download_choice__download_pdf" id="download_choice__download_pdf" data-url_parms="?download_type=pdf" data-send_checked="" data-prompt="" data-popup="" data-url="/download_data" class="ng-binding ng-scope">
+            <!-- ngIf: item.icon && item.text --><i ng-if="item.icon &amp;&amp; item.text" class="fa fa-file-pdf-o fa-lg" ng-style="{color: item.color}" style="margin-right: 5px;"></i><!-- end ngIf: item.icon && item.text -->
+            <!-- ngIf: item.icon && !item.text -->
+            <!-- ngIf: item.img_url && !item.icon -->
+            Download as PDF
+          </a><!-- end ngIf: item.type !== 'separator' -->
+          <!-- ngIf: item.type === 'separator' -->
+        </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+      </ul>
+    </div><!-- end ngIf: vm.isEmpty -->
+    </miq-toolbar-list><!-- end ngIf: item.type === vm.getToolbarListType() && item.items.length > 0 -->
+          <!-- ngIf: item.name == 'custom' && item.args && item.args.html -->
+        </ng-repeat><!-- end ngRepeat: item in toolbarItem  -->
+      </div><!-- end ngIf: vm.hasContent(toolbarItem) --><!-- end ngRepeat: toolbarItem in vm.toolbarItems -->
+      <miq-toolbar-view toolbar-views="vm.toolbarViews" on-item-click="vm.onViewClick({item: item, $event: $event})" class="miq-view-list ng-isolate-scope"><div class="toolbar-pf-view-selector pull-right form-group">
+      <!-- ngRepeat: item in vm.toolbarViews --><button class="btn btn-link ng-scope active" ng-repeat="item in vm.toolbarViews" ng-class="{active: item.selected}" title="Grid View" id="view_grid" data-url="explorer" data-url_parms="?type=grid" data-send_checked="" data-prompt="" data-popup="" ng-click="vm.onItemClick({item: item, $event: $event})" name="view_grid">
+        <i class="fa fa-th" style="" ng-style="{color: item.color}"></i>
+      </button><!-- end ngRepeat: item in vm.toolbarViews --><button class="btn btn-link ng-scope" ng-repeat="item in vm.toolbarViews" ng-class="{active: item.selected}" title="Tile View" id="view_tile" data-url="explorer" data-url_parms="?type=tile" data-send_checked="" data-prompt="" data-popup="" ng-click="vm.onItemClick({item: item, $event: $event})" name="view_tile">
+        <i class="fa fa-th-large" style="" ng-style="{color: item.color}"></i>
+      </button><!-- end ngRepeat: item in vm.toolbarViews --><button class="btn btn-link ng-scope" ng-repeat="item in vm.toolbarViews" ng-class="{active: item.selected}" title="List View" id="view_list" data-url="explorer" data-url_parms="?type=list" data-send_checked="" data-prompt="" data-popup="" ng-click="vm.onItemClick({item: item, $event: $event})" name="view_list">
+        <i class="fa fa-th-list" style="" ng-style="{color: item.color}"></i>
+      </button><!-- end ngRepeat: item in vm.toolbarViews -->
+    </div>
+    </miq-toolbar-view>
+    </div>
+    </miq-toolbar-menu>
+    </ng-csp>
+    </div>
+  </div>
   <div class="row">
     <div class="col-sm-8 col-md-9 col-sm-push-4 col-md-push-3">
-      <h1>Lorem Ipsum</h1>
+      <div id="main-content">
+        <h1>Lorem Ipsum</h1>
+      </div>
+      <div class="col-md-12 no-padding">
+        <div class="row" id="paging_div">
+        <div class="col-md-12"><div class="miq-pagination ng-scope" ng-if="tileCtrl.settings &amp;&amp; tileCtrl.settings.sortBy &amp;&amp; (tileCtrl.settings.isLoading || tileCtrl.rows.length !== 0)">
+              <miq-pagination settings="tileCtrl.settings" per-page="tileCtrl.perPage" on-select-all="tileCtrl.onCheckAll(isSelected)" on-change-sort="tileCtrl.onSortClick(sortId, isAscending)" on-change-page="tileCtrl.setPage(pageNumber)" on-change-per-page="tileCtrl.perPageClick(item)" class="ng-isolate-scope"><!-- ngIf: !paginationCtrl.settings.hideSelect --><div class="pagination content-view-pf-pagination ng-scope" ng-if="!paginationCtrl.settings.hideSelect">
+
+          <div class="form-group">
+            <!-- Select all start -->
+            <span class="checkbox span-right-border" style="margin: 0 0 0 5px">
+              <label class="checkbox-inline ng-binding">
+                <input type="checkbox" ng-model="paginationCtrl.isChecked" ng-click="paginationCtrl.onSelectAll({isSelected: paginationCtrl.isChecked})" title="Select All" class="ng-pristine ng-untouched ng-valid ng-empty">
+                Select All
+              </label>
+            </span>
+            <!-- Select all end -->
+            <span>
+              <!-- Sort items by start -->
+              <!-- ngIf: paginationCtrl.settings.sortBy --><miq-sort-items ng-if="paginationCtrl.settings.sortBy" sort-object="paginationCtrl.settings.sortBy" headers="paginationCtrl.settings.columns" dropdown-class="paginationCtrl.settings.dropdownClass" on-sort="paginationCtrl.onChangeSort({sortId: sortObject.colId, isAscending: isAscending})" class="ng-scope ng-isolate-scope dropup"><div miq-pf-sort="" config="vm.options" class="ng-isolate-scope"><div class="sort-pf">
+          <div uib-dropdown="" class="btn-group dropdown">
+            <button uib-dropdown-toggle="" type="button" class="btn btn-default ng-binding dropdown-toggle" aria-haspopup="true" aria-expanded="false">
+              Name
+              <span class="caret"></span>
+            </button>
+            <ul uib-dropdown-menu="" class="dropdown-menu">
+              <!-- ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Name
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Provider
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Cluster
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Host
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  IP Addresses
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Datastore
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Compliant
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Total Snapshots
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Allocated Size
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Last Analysis Time
+                </a>
+              </li><!-- end ngRepeat: item in config.fields --><li ng-repeat="item in config.fields" ng-class="{'selected': item === config.currentField}" class="ng-scope">
+                <a href="javascript:void(0);" class="sort-field ng-binding" role="menuitem" tabindex="-1" ng-click="selectField(item)">
+                  Region
+                </a>
+              </li><!-- end ngRepeat: item in config.fields -->
+            </ul>
+          </div>
+          <button class="btn btn-link" type="button" ng-click="changeDirection()">
+            <span class="sort-direction fa fa-sort-amount-asc" ng-class="getSortIconClass()"></span>
+          </button>
+        </div>
+        </div></miq-sort-items><!-- end ngIf: paginationCtrl.settings.sortBy -->
+              <!-- Sort items by end -->
+            </span>
+          </div>
+
+          <div class="form-group">
+            <!-- Per page start -->
+             <miq-toolbar-list on-item-click="paginationCtrl.onChangePerPage({item: item})" dropdown-class="paginationCtrl.settings.dropdownClass" toolbar-list="paginationCtrl.perPage" class="ng-isolate-scope"><!-- ngIf: vm.isEmpty --><div class="btn-group ng-scope dropdown dropup" ng-class="vm.dropdownClass" uib-dropdown="" ng-if="vm.isEmpty">
+          <button type="button" uib-dropdown-toggle="" class="btn uib-dropdown-toggle btn-default ng-binding dropdown-toggle" ng-class="{disabled: !vm.toolbarList.enabled}" title="" aria-haspopup="true" aria-expanded="false">
+            <!-- ngIf: vm.toolbarList.icon -->
+            20 Items
+            <span class="caret"></span>
+          </button>
+          <ul class="uib-dropdown-menu dropdown-menu" role="menu">
+            <!-- ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_5" name="per_page_5" id="per_page_5" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                5 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_10" name="per_page_10" id="per_page_10" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                10 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_20" name="per_page_20" id="per_page_20" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                20 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_50" name="per_page_50" id="per_page_50" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                50 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_100" name="per_page_100" id="per_page_100" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                100 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index --><li ng-repeat="item in vm.toolbarList.items track by $index" ng-class="{disabled: !item.enabled}" class="ng-scope">
+              <!-- ngIf: item.type !== 'separator' --><a ng-if="item.type !== 'separator'" ng-hide="item.hidden" href="" title="" data-explorer="" data-confirm-tb="" ng-click="vm.onItemClick({item: item, $event: $event})" data-function="" data-function-data="" data-target="" data-toggle="" data-click="per_page_1000" name="per_page_1000" id="per_page_1000" data-url_parms="" data-send_checked="" data-prompt="" data-popup="" data-url="" class="ng-binding ng-scope">
+                <!-- ngIf: item.icon && item.text -->
+                <!-- ngIf: item.icon && !item.text -->
+                <!-- ngIf: item.img_url && !item.icon -->
+                1000 Items
+              </a><!-- end ngIf: item.type !== 'separator' -->
+              <!-- ngIf: item.type === 'separator' -->
+            </li><!-- end ngRepeat: item in vm.toolbarList.items track by $index -->
+          </ul>
+        </div><!-- end ngIf: vm.isEmpty -->
+        </miq-toolbar-list>
+            <!-- Per page end -->
+            <!-- Number of records start -->
+            <span class="per-page-label span-right-border ng-binding"></span>
+             <!-- ngIf: paginationCtrl.settings.items --><span ng-if="paginationCtrl.settings.items" class="ng-binding ng-scope">
+              1 - 20 of 219
+            </span><!-- end ngIf: paginationCtrl.settings.items -->
+            <!-- Number of records end -->
+            <!-- Page chooser start -->
+            <!-- ngIf: paginationCtrl.settings.current --><span ng-if="paginationCtrl.settings.current" class="ng-scope">
+              <miq-paging settings="paginationCtrl.settings" on-change-page="paginationCtrl.onChangePage({pageNumber: pageNumber})" class="ng-isolate-scope"><ul class="pagination">
+          <li>
+            <a ng-class="{disabled: pagingCtrl.settings.current === 1}" ng-click="pagingCtrl.onChangePage({pageNumber: 1})" href="javascript:void(0)" class="disabled">
+              <span class="i fa fa-angle-double-left"></span>
+            </a>
+          </li>
+          <li>
+            <a ng-class="{disabled: pagingCtrl.settings.current === 1}" ng-click="pagingCtrl.onChangePage({pageNumber: pagingCtrl.settings.current - 1})" href="javascript:void(0)" class="disabled">
+              <span class="i fa fa-angle-left"></span>
+            </a>
+          </li>
+          <li class="page-selector">
+            <span> <input type="number" ng-disabled="pagingCtrl.settings.total <= 1" ng-model="pagingCtrl.settings.current" ng-model-options="{updateOn : 'change blur'}" ng-change="pagingCtrl.onPageChange()" class="ng-pristine ng-untouched ng-valid ng-not-empty">
+            <label class="ng-binding">of 11</label></span>
+          </li>
+          <li>
+            <a ng-class="{disabled: (pagingCtrl.settings.current) === pagingCtrl.settings.total}" ng-click="pagingCtrl.onChangePage({pageNumber: (pagingCtrl.settings.current + 1)})" href="javascript:void(0)">
+              <span class="i fa fa-angle-right"></span>
+            </a>
+          </li>
+          <li>
+            <a ng-class="{disabled: (pagingCtrl.settings.current) === pagingCtrl.settings.total}" ng-click="pagingCtrl.onChangePage({pageNumber: pagingCtrl.settings.total})" href="javascript:void(0)">
+              <span class="i fa fa-angle-double-right"></span>
+            </a>
+          </li>
+        </ul>
+        </miq-paging>
+            </span><!-- end ngIf: paginationCtrl.settings.current -->
+            <!-- Page chooser end -->
+          </div>
+        </div><!-- end ngIf: !paginationCtrl.settings.hideSelect -->
+        </miq-pagination>
+          </div></div></div>
+      </div>
+
+
+
     </div>
     <div class="col-sm-4 col-md-3 col-sm-pull-8 col-md-pull-9 sidebar-pf sidebar-pf-left">
       <div class="panel-group" id="accordion">
